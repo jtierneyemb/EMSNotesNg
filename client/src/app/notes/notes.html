@@ -1,0 +1,86 @@
+<div class="container-fluid">
+
+  <div class="col-xs-12" ng-if="main.loading">
+    {{main.loadingMessage}}
+  </div>
+
+  <div class="col-xs-12" ng-if="main.loadingFailed">
+    {{main.loadingFailedMessage}}
+  </div>
+
+  <div ng-show="!main.loading && !main.loadingFailed">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" ng-click="main.showNewEntityForm()">
+        <span class="glyphicon glyphicon-plus"></span> Note
+      </button>
+    </div>
+
+    <div class="col-xs-12">
+      <ol class="list-group">
+
+        <!--Add note-->
+        <li class="list-group-item" ng-if="main.showingNewEntityForm">
+          <fe-notes-form
+            form="main.newEntityForm"
+            errors="main.entityCreateErrors"
+            cancel="main.hideNewEntityForm()"
+            submit="main.submitNewEntityForm()"
+            ok="Add"
+            statictitle="false"
+            entity="main.newEntity"
+          >
+          </fe-notes-form>
+        </li>
+
+
+        <!--Note details-->
+        <li class="list-group-item clearfix" ng-repeat="entity in main.entitys">
+          <div ng-hide="main.showingEditEntityForm(entity)">
+            <div class="col-xs-10">
+              <div class="h4">
+                {{ entity.title}}
+              </div>
+              <div>
+              {{ entity.text}}
+            </div>
+            </div>
+
+            <div class="col-xs-2">
+              <!--Delete note button-->
+              <div class="pull-right">
+                <button class="btn btn-link" ng-click="main.trashEntity(entity)">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <br>
+                <button class="btn btn-link" ng-click="main.showEditEntityForm(entity)">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!--Edit note-->
+
+          <div ng-if="main.showingEditEntityForm(entity)">
+
+            <div>
+              <fe-notes-form
+                form="main.editEntityForm"
+                errors="main.entityUpdateErrors"
+                cancel="main.hideEditEntityForm()"
+                submit="main.submitEditEntityForm()"
+                entity="main.editEntity"
+                statictitle="true"
+                ok="Save"
+              >
+              </fe-notes-form>
+            </div>
+
+
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

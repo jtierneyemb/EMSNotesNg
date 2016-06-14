@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default" xxng-controller="HeaderController as vm">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              aria-expanded="false" ng-click="vm.isCollapsed = !vm.isCollapsed" ng-init="vm.isCollapsed = true">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">EMS Notes</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" ng-class="!vm.isCollapsed && 'in'">
+      <!--uib-collapse="vm.isCollapsed">-->
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+        <li ui-sref-active="active"><a ui-sref="notes">Notes</a></li>
+      </ul>
+
+
+      <div ng-if="!vm.loggingIn()" >
+        <div class="navbar-form navbar-right">
+          <div ng-if="vm.loggedIn">
+            <div class="form-group">
+              <p class="control-label">
+                Logged in as {{vm.userName}}
+              </p>
+            </div>
+            <div class="form-group">
+              <a class="btn btn-link" ui-sref="login">Logout</a>
+            </div>
+          </div>
+          <div ng-if="!vm.loggedIn && !vm.loggingIn()">
+            <a ui-sref="login">Login</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/06/13 15:50:32.000.789,=emsserverapi.dcp</Transaction>
+    <Transaction>2016/06/13 15:50:45.000.915,=C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NoteTypesU.pas</Transaction>
+    <Transaction>2016/06/13 15:50:46.000.359,=C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesManagerU.pas</Transaction>
+    <Transaction>2016/06/13 15:50:46.000.337,=C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesResourceU.pas</Transaction>
+    <Transaction>2016/06/13 15:52:10.000.206,C:\Users\Jim\Documents\Embarcadero\Studio\Projects\Project430.dproj=C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\Project430.dproj</Transaction>
+    <Transaction>2016/06/13 15:53:13.000.547,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\Project430.dproj=C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesResourceProject.dproj</Transaction>
+    <Transaction>2016/06/13 15:54:19.000.123,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesResourceProject.dproj=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesResourceProject.dproj</Transaction>
+    <Transaction>2016/06/13 15:54:58.000.060,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesManagerU.pas=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesManagerU.pas</Transaction>
+    <Transaction>2016/06/13 15:55:10.000.424,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesResourceU.dfm=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesResourceU.dfm</Transaction>
+    <Transaction>2016/06/13 15:55:10.000.424,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NotesResourceU.pas=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesResourceU.pas</Transaction>
+    <Transaction>2016/06/13 15:55:21.000.939,C:\tp\trunk\runtime\data\meap\samples\NotesNg\Resource\NoteTypesU.pas=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NoteTypesU.pas</Transaction>
+    <Transaction>2016/06/13 16:02:09.000.179,C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesResourceProject.dproj=C:\tp\xe10update\runtime\data\meap\samples\NotesNg\resource\NotesResourcePackage.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
