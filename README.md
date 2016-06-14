@@ -49,9 +49,9 @@ The two projects are built independently.
     * bin64/emsserverapi.dll
     * NotesResourcePackage.bpl
 * emsserver.ini
-   * copy emsserver.ini to virtual directory
+   * copy emsserver.ini to the virtual directory
    * modify emsserver.ini
-     * Under [Server.Packages] specify the full path of NotesResourcePackage.
+     * Under [Server.Packages] specify the full path of NotesResourcePackage.bpl.
      * For example: `c:\ems\NotesResourcePackage.bpl=notes resource`
 * Copy Angular project dist files
   * Copy all files from EMSNotesNg/client/dist to the virtual client directory
@@ -59,7 +59,7 @@ The two projects are built independently.
 ### Run
 * Browse to the virtual client directory to see the Home page
 * Click the login link on the right
-* Login and existing user or signup a new user
+* Login an existing user or signup a new user
 
 ### Trouble shooting
 * Do not see home page
