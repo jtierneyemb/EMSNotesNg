@@ -8,8 +8,9 @@ An EMS (RAD Server) resource package with AngularJS application, to list, add, e
 
 The resource directory contains an EMS resource project called NotesResourcePackage.dpk.
 
-The client directory contains an AngularJS/Gulp project.  This application communicates with the EMS server
-using conventional Angular $resource calls.
+The client directory contains an AngularJS/Gulp project.  
+
+This AngularJS application communicates with the EMS server using REST requests.
 
 The two projects are built independently.    
 
