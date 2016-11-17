@@ -27,7 +27,6 @@
       vm.lastToast = null;
 
       _scope_.$on('$destroy', function () {
-        $log.log('destroying controller');
         // Remove current toasts when switch views
         toastr.clear();
       });

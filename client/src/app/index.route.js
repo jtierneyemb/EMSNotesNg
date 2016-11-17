@@ -80,7 +80,6 @@
       var endWait = waitIndicator.beginWait();
       resource.query(
         function (response) {
-          $log.info('received data');
           endWait();
           deferred.resolve(response);
         },
@@ -93,23 +92,25 @@
       return deferred.promise;
     }
 
-    function resolveResourceGet(resource, id, $q, waitIndicator, $log) {
-      var deferred = $q.defer();
-      var endWait = waitIndicator.beginWait();
-      resource.get({id: id},
-        function (response) {
-          $log.info('received data');
-          endWait();
-          deferred.resolve(response);
-        },
-        function (response) {
-          $log.error('data error ' + response.status + " " + response.statusText);
-          endWait();
-          deferred.resolve(response);
-        }
-      );
-      return deferred.promise;
-    }
+    // NOT Needed
+    //
+    // function resolveResourceGet(resource, id, $q, waitIndicator, $log) {
+    //   var deferred = $q.defer();
+    //   var endWait = waitIndicator.beginWait();
+    //   resource.get({id: id},
+    //     function (response) {
+    //       $log.info('received data');
+    //       endWait();
+    //       deferred.resolve(response);
+    //     },
+    //     function (response) {
+    //       $log.error('data error ' + response.status + " " + response.statusText);
+    //       endWait();
+    //       deferred.resolve(response);
+    //     }
+    //   );
+    //   return deferred.promise;
+    // }
 
 
   }

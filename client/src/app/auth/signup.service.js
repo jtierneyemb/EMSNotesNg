@@ -24,7 +24,6 @@
     return service;
 
     function getSignup() {
-      $log.info("getSignup()");
       return $resource(path, null, {'signup': {method: 'POST', params: null}});
     }
   }

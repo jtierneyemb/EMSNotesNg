@@ -18,7 +18,7 @@
 
     function activate() {
       // reset auth status
-      AuthenticationService.ClearCredentials();
+      AuthenticationService.clearCredentials();
       errorsHelper.activate(vm,
         {
           'username': null,
@@ -38,8 +38,6 @@
       var endWait = waitIndicator.beginWait();
       signupResource.getSignup().signup(body,
         function (response) {
-          $log.info('login');
-          $log.info(response);
           endWait();
           var updatedEntity = angular.copy(entity);
           angular.merge(updatedEntity, response);
@@ -58,7 +56,7 @@
     }
 
     function entityUpdated(entity) {
-      AuthenticationService.SetCredentials(entity.username, entity.sessionToken);
+      AuthenticationService.setCredentials(entity.username, entity.sessionToken);
       $state.go('notes');
     }
 
