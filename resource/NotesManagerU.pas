@@ -17,10 +17,10 @@ type
     constructor Create(const ADirectory: string; const AUserID: string);
     destructor Destroy; override;
     function GetNotes: TArray<TNote>;
-    function GetNote(const ATitle: string; out ANote: TNote): Boolean;
+    function GetNote(const ATitle: string): TNote;
     procedure UpdateNote(const ATitle: string; const ANote: TNote);
     procedure AddNote(const ANote: TNote);
-    function DeleteNote(const ATitle: string): Boolean;
+    procedure DeleteNote(const ATitle: string);
     function NoteExists(const ATitle: string): Boolean;
   end;
 
@@ -56,11 +56,11 @@ begin
   Result := FIniFile.ValueExists(FUserID, ATitle);
 end;
 
-function TNotesManager.DeleteNote(const ATitle: string): Boolean;
+procedure TNotesManager.DeleteNote(const ATitle: string);
 begin
-  Result := NoteExists(ATitle);
-  if Result then
-    FIniFile.DeleteKey(FUserID, ATitle);
+  if not NoteExists(ATitle) then
+    raise ENoteNotFound.CreateFmt('"%s" not found', [ATitle]);
+  FIniFile.DeleteKey(FUserID, ATitle);
 end;
 
 destructor TNotesManager.Destroy;
@@ -134,16 +134,14 @@ begin
   end;
 end;
 
-function TNotesManager.GetNote(const ATitle: string; out ANote: TNote): Boolean;
+function TNotesManager.GetNote(const ATitle: string): TNote;
 var
   LText: string;
 begin
-  Result := NoteExists(ATitle);
-  if Result then
-  begin
-    LText := DecodeMultilineText(FIniFile.ReadString(FUserID, ATitle, ''));
-    ANote := TNote.Create(ATitle, LText);
-  end;
+  if not NoteExists(ATitle) then
+    raise ENoteNotFound.CreateFmt('"%s" not found', [ATitle]);
+  LText := DecodeMultilineText(FIniFile.ReadString(FUserID, ATitle, ''));
+  Result := TNote.Create(ATitle, LText);
 end;
 
 function TNotesManager.GetNotes: TArray<TNote>;

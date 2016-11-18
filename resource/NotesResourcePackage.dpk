@@ -35,6 +35,7 @@ requires
 contains
   NoteTypesU in 'NoteTypesU.pas',
   NotesResourceU in 'NotesResourceU.pas' {NotesResource1: TDataModule},
-  NotesManagerU in 'NotesManagerU.pas';
+  NotesManagerU in 'NotesManagerU.pas',
+  NotesSwaggerU in 'NotesSwaggerU.pas';
 
 end.
