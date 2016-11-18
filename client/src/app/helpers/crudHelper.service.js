@@ -82,7 +82,6 @@
     }
 
     function trashEntity(entity, confirmDelete) {
-      $log.info('destroy');
       if (angular.isUndefined(confirmDelete))
         confirmDelete = true;
       if (confirmDelete) {
@@ -91,7 +90,6 @@
           feUtils.escapeHtml(getEntityDisplayName(entity)) + '"?'
         })
           .then(function () {
-            $log.info('delete confirmed');
             removeEntity(entity)
           });
       }
@@ -102,19 +100,16 @@
     }
 
     function submitNewEntityForm() {
-      $log.info('submitNewEntityForm');
       var submitEntity = beforeSubmitNewEntity(vm.newEntity);
       createEntity(submitEntity);
     }
 
     function showNewEntityForm() {
-      $log.info('showNewEntityForm');
       beforeShowNewEntityForm();
       vm.showingNewEntityForm = true;
     }
 
     function hideNewEntityForm() {
-      $log.info('hideNewEntityForm');
       if (vm.newEntityForm) {
         vm.newEntityForm.$setPristine();
       }
@@ -125,20 +120,17 @@
     }
 
     function submitEditEntityForm() {
-      $log.info('submitEditEntityForm');
       var submit = beforeSubmitEditEntity(vm.editEntity);
       updateEntity(submit);
     }
 
     function showEditEntityForm(entity) {
-      $log.info('showEditEntityForm');
       // Edit a copy, so can discard unless click Save
       vm.editEntity = angular.copy(entity);
       beforeShowEditEntityForm(entity);
     }
 
     function hideEditEntityForm() {
-      $log.info('hideEditEntityForm');
       if (vm.editEntityForm) {
         vm.editEntityForm.$setPristine();
       }
@@ -170,7 +162,6 @@
     }
 
     function entityLoaded(response) {
-      $log.info('received data');
       vm.entitys = response;
       vm.loadingHasCompleted();
     }
@@ -185,8 +176,6 @@
       var endWait = waitIndicator.beginWait();
       getResources().save(body,
         function (response) {
-          $log.info('create/save');
-          $log.info(response);
           endWait();
           var newEntity = angular.copy(entity);
           angular.merge(newEntity, response);
@@ -208,8 +197,6 @@
       var endWait = waitIndicator.beginWait();
       getResources().update(key, body,
         function (response) {
-          $log.info('update');
-          $log.info(response);
           endWait();
           var updatedEntity = angular.copy(entity);
           angular.merge(updatedEntity, response);
@@ -229,8 +216,6 @@
       var endWait = waitIndicator.beginWait();
       getResources().remove(key,
         function (response) {
-          $log.info('remove entity');
-          $log.info(response);
           endWait();
           entityRemoved(entity);
         },
@@ -274,7 +259,6 @@
     }
 
     function entityRemoved(entity) {
-      $log.info('entityRemoved ' + entity[keyName]);
       vm.entityRemoveErrors = null;
       var i = vm.entitys.indexOf(entity);
       if (i >= 0) {

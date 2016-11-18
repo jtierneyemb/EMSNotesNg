@@ -24,7 +24,6 @@
     return service;
 
     function getNotes() {
-      $log.info("getNotes()");
       return $resource(path + '/:id', null, {'update': {method: 'PUT'}});
     }
   }

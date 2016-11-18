@@ -4,26 +4,28 @@
   angular
     .module('frontend')
     .run(runBlock);
-  
+
   /** @ngInject */
-  function runBlock($rootScope, $state, $cookieStore, $http, $log, AuthenticationService) {
+  function runBlock($rootScope, $state, $http, $log, AuthenticationService) {
     // keep user logged in after page refresh
     AuthenticationService.loadCredentials();
 
-    $rootScope
+    var deregister = $rootScope
       .$on('$stateChangeStart',
-        function (event, toState, toParams, fromState, fromParams) {
-          $log.info('$stateChangeStart');
-          // redirect to auth page if not logged in and trying to access a restricted page
-          // var restrictedPage = $.inArray($location.path(), ['/auth', '/register']) === -1;
+        function (event, toState, toParams, fromState /*, fromParams*/) {
           var restrictedPage = ['login', 'register', 'home'].indexOf(toState.name) === -1;
-          var loggedIn = $rootScope.globals.currentUser;
+          if (restrictedPage && AuthenticationService.validatingCredentials) {
+            event.preventDefault();
+            return $state.go('home');
+          }
+          var loggedIn = $rootScope.currentUser;
           if (restrictedPage && !loggedIn) {
             event.preventDefault();
             if (['login', 'register'].indexOf(fromState.name) === -1)
               return $state.go('login');
           }
         });
+    $rootScope.$on('$destroy', deregister)
   }
 
 })();

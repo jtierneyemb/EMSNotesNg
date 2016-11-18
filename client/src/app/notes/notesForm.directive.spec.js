@@ -5,7 +5,6 @@
    * @todo Complete the test
    */
   describe('directive notes form', function () {
-    var $log;
     var errors;
     var entity;
     var compiledDirective;
@@ -13,8 +12,7 @@
     var okText;
 
     beforeEach(module('frontend'));
-    beforeEach(inject(function ($compile, $rootScope, _$log_) {
-      $log = _$log_;
+    beforeEach(inject(function ($compile, $rootScope) {
 
       errors = {
         other: ['othererror'],
